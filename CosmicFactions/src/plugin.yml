@@ -1,0 +1,8 @@
+name: CosmicRemake
+author: Falcon_Seeker
+version: 1.0
+main: me.falconseeker.cosmic.Cosmic
+commands:
+  cosmic:
+    description: Main command for cosmic plugins
+    usage: /cosmic
