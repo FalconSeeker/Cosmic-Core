@@ -14,8 +14,8 @@ public class Cosmic extends JavaPlugin {
 	public void onEnable() {
 		new EndPortals(this);
 		
-		EntityRegister.registerCustomEntity(51, "EnderMonster", EMobEnderMonster.class);
-		EntityRegister.registerCustomEntity(50, "EndCreeper", EMobCreepers.class);
+		EntityRegister.registerCustomEntity(5, "EndMonster", EnderMonster.class);
+		EntityRegister.registerCustomEntity(50, "EndCreeper", EnderCreeper.class);
 		
         CommandHandler handler = new CommandHandler();
 
