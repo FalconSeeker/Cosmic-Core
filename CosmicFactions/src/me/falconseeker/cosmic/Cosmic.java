@@ -4,9 +4,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.falconseeker.cosmic.commands.BaseCommand;
 import me.falconseeker.cosmic.commands.CommandHandler;
+import me.falconseeker.cosmic.commands.subcommands.CommandBal;
+import me.falconseeker.cosmic.commands.subcommands.CommandGiveMoney;
 import me.falconseeker.cosmic.commands.subcommands.CommandSummon;
+import me.falconseeker.cosmic.commands.subcommands.CommandWithdraw;
 import me.falconseeker.cosmic.end.listeners.CustomMobs;
 import me.falconseeker.cosmic.end.listeners.EndPortals;
+import me.falconseeker.cosmic.end.listeners.MobHealth;
 import me.falconseeker.cosmic.money.Money;
 import me.falconseeker.cosmic.money.listeners.MoneyClick;
 import me.falconseeker.end.endmonsters.*;
@@ -22,15 +26,19 @@ public class Cosmic extends JavaPlugin {
 		new EndPortals(this);
 		new CustomMobs(this);
 		new MoneyClick(this);
+		new MobHealth(this);
 		
 		EntityRegister.registerCustomEntity(5, "EndMonster", EnderMonster.class);
 		EntityRegister.registerCustomEntity(50, "EndCreeper", EnderCreeper.class);
 		
-        CommandHandler handler = new CommandHandler();
+        CommandHandler handler = new CommandHandler(this);
 
         handler.register("cosmic", new BaseCommand());
         handler.register("summon", new CommandSummon());
- 
+        handler.register("withdraw", new CommandWithdraw());
+        handler.register("bal", new CommandBal());
+        handler.register("givemoney", new CommandGiveMoney());
+
         getCommand("cosmic").setExecutor(handler);
         
 	}
@@ -40,5 +48,5 @@ public class Cosmic extends JavaPlugin {
 	}
 	public Money getMoney() {
 		return money;
-	}
+	}  
 }

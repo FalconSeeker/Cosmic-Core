@@ -18,6 +18,14 @@ public class Utils {
 		
 		return createNote(random_int, signer);
 	}
+	public static boolean random(int chance) {
+		Random ran = new Random();
+		int random_int = ran.nextInt((100-0) + 1) + 0;
+		
+		if (random_int <= chance) return true;
+		
+		return false;
+	}
 	public static ItemStack createNote(int value, String signer) {
 		ArrayList<String> lore = new ArrayList<String>();
 		lore.add(color("&dValue &f" + String.valueOf(value)));
@@ -35,5 +43,9 @@ public class Utils {
 		ItemStack untagged_item = ItemBuilder.createItem("&a&lExperience Bottle &7(Throw)", Material.EXP_BOTTLE, lore, 1);
 		
 		return XTags.setItemTag(untagged_item, value, "Value");
+	}
+	public static ItemStack chanceItem(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

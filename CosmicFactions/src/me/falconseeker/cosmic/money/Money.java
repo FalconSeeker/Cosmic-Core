@@ -16,15 +16,13 @@ public class Money {
 	
 	public Money(Cosmic main) {
 		this.main = main;
+		this.money = new HashMap<Player, Integer>();
 	}
 	public int getMoney(Player p) {
 		if (money.get(p) == null) return 0;
 		return money.get(p);
 	}
 	public void addMoney(Player p, int amount) {
-		if (money.get(p) == null) {
-			money.put(p, 0);
-		}
 		money.put(p, amount);
 	}
 	public void resetBalance(Player p) {

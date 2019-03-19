@@ -27,6 +27,8 @@ public final class EMobs extends Utils {
         EnderMonster cz = new EnderMonster(nmsWorld);
         cz.setPosition(loc.getX(), loc.getY(), loc.getZ());
         cz.h(loc.getYaw());
+        XTags.setEntityTag(cz.getBukkitEntity(), "EnderMonster", "MobType");
+
         nmsWorld.addEntity(cz);          
     }
     /**
@@ -40,6 +42,7 @@ public final class EMobs extends Utils {
         EnderCreeper cz = new EnderCreeper(nmsWorld);
         cz.setPosition(loc.getX(), loc.getY(), loc.getZ());
         cz.h(loc.getYaw());
+        XTags.setEntityTag(cz.getBukkitEntity(), "EnderCreeper", "MobType");
 
         nmsWorld.addEntity(cz);          
     }
