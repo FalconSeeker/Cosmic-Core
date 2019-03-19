@@ -20,16 +20,20 @@ public class Utils {
 	}
 	public static ItemStack createNote(int value, String signer) {
 		ArrayList<String> lore = new ArrayList<String>();
-		lore.add("&dValue &f" + String.valueOf(value));
-		lore.add("&dSigner &7" + signer);
+		lore.add(color("&dValue &f" + String.valueOf(value)));
+		lore.add(color("&dSigner &7" + signer));
 		
-		return ItemBuilder.createItem("&b&lCosmic Note &7(Right Click)", Material.PAPER, lore, 1);
+		ItemStack untagged_item = ItemBuilder.createItem("&b&lCosmic Note &7(Right Click)", Material.PAPER, lore, 1);
+		
+		return XTags.setItemTag(untagged_item, value, "Value");
 	}
 	public static ItemStack createEXP(int value, String signer) {
 		ArrayList<String> lore = new ArrayList<String>();
-		lore.add("&dValue &f" + String.valueOf(value) + " XP");
-		lore.add("&dSigner &7" + signer);
+		lore.add(color("&dValue &f" + String.valueOf(value) + " XP"));
+		lore.add(color("&dEnchanter &7" + signer));
 		
-		return ItemBuilder.createItem("&a&lExperience Bottle &7(Throw)", Material.EXP_BOTTLE, lore, 1);
+		ItemStack untagged_item = ItemBuilder.createItem("&a&lExperience Bottle &7(Throw)", Material.EXP_BOTTLE, lore, 1);
+		
+		return XTags.setItemTag(untagged_item, value, "Value");
 	}
 }

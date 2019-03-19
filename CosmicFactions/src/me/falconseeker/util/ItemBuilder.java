@@ -1,5 +1,6 @@
 package me.falconseeker.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -21,6 +22,13 @@ public final class ItemBuilder extends Utils {
 		ItemStack i = new ItemStack(mat);
 		if (amount != 0) i = new ItemStack(mat, amount);
 		ItemMeta meta = i.getItemMeta();
+		
+		if (lore != null) {
+		List<String> l = new ArrayList<String>();
+		lore.forEach(s -> l.add(Utils.color(s)));
+		
+		meta.setLore(lore);
+		}
 		meta.setDisplayName(color(name));
 		i.setItemMeta(meta);
 		return i;
