@@ -8,12 +8,12 @@ import me.falconseeker.cosmic.commands.subcommands.CommandBal;
 import me.falconseeker.cosmic.commands.subcommands.CommandGiveMoney;
 import me.falconseeker.cosmic.commands.subcommands.CommandSummon;
 import me.falconseeker.cosmic.commands.subcommands.CommandWithdraw;
+import me.falconseeker.cosmic.end.endmonsters.*;
 import me.falconseeker.cosmic.end.listeners.CustomMobs;
 import me.falconseeker.cosmic.end.listeners.EndPortals;
 import me.falconseeker.cosmic.end.listeners.MobHealth;
 import me.falconseeker.cosmic.money.Money;
 import me.falconseeker.cosmic.money.listeners.MoneyClick;
-import me.falconseeker.end.endmonsters.*;
 
 public class Cosmic extends JavaPlugin {
 

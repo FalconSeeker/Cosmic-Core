@@ -2,8 +2,9 @@ package me.falconseeker.util;
 
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
-import me.falconseeker.end.endmonsters.EnderCreeper;
-import me.falconseeker.end.endmonsters.EnderMonster;
+
+import me.falconseeker.cosmic.end.endmonsters.EnderCreeper;
+import me.falconseeker.cosmic.end.endmonsters.EnderMonster;
 import net.minecraft.server.v1_12_R1.WorldServer;
 
 /**

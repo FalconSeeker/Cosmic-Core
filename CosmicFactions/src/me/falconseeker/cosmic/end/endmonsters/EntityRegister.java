@@ -1,4 +1,4 @@
-package me.falconseeker.end.endmonsters;
+package me.falconseeker.cosmic.end.endmonsters;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
