@@ -27,10 +27,10 @@ import net.minecraft.server.v1_12_R1.World;
 
 public class EnderMonster extends EntitySkeletonWither {
 
-	private final double MONSTER_SPEED = 0.3d;
-	private final double MONSTER_ATTACK = 12.0d;
-	private final double MONSTER_FOLLOW = 10.0d;
-	private final String MONSTER_NAME = Utils.color("&d&lEnder Monster");
+    private final double MONSTER_SPEED = 0.3d;
+    private final double MONSTER_ATTACK = 12.0d;
+    private final double MONSTER_FOLLOW = 10.0d;
+    private final String MONSTER_NAME = Utils.color("&d&lEnder Monster");
 	
     public EnderMonster(World world) {
       super(world);

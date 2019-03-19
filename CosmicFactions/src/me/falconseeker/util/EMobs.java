@@ -31,6 +31,7 @@ public final class EMobs extends Utils {
         XTags.setEntityTag(cz.getBukkitEntity(), "EnderMonster", "MobType");
 
         nmsWorld.addEntity(cz);          
+
     }
     /**
      * Spawns a Creeper

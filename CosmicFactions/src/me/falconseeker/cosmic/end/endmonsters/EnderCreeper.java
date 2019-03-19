@@ -21,10 +21,10 @@ import net.minecraft.server.v1_12_R1.World;
 
 public class EnderCreeper extends EntityCreeper {
 
-	private final double MONSTER_SPEED = 0.0d;
-	private final double MONSTER_ATTACK = 0.0d;
-	private final double MONSTER_FOLLOW = 4.0d;
-	private final String MONSTER_NAME = Utils.color("&d&lEnder Creeper");
+    private final double MONSTER_SPEED = 0.0d;
+    private final double MONSTER_ATTACK = 0.0d;
+    private final double MONSTER_FOLLOW = 4.0d;
+    private final String MONSTER_NAME = Utils.color("&d&lEnder Creeper");
 	
     public EnderCreeper(World world) {
       super(world);
