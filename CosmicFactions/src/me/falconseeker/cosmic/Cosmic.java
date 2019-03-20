@@ -14,6 +14,7 @@ import me.falconseeker.cosmic.end.listeners.EndPortals;
 import me.falconseeker.cosmic.end.listeners.MobHealth;
 import me.falconseeker.cosmic.money.Money;
 import me.falconseeker.cosmic.money.listeners.MoneyClick;
+import me.falconseeker.util.events.ArmorListener;
 
 public class Cosmic extends JavaPlugin {
 
@@ -21,6 +22,10 @@ public class Cosmic extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		saveDefaultConfig();
+
+		getServer().getPluginManager().registerEvents(new ArmorListener(getConfig().getStringList("blocked")), this);
+
 		this.money = new Money(this);
 		
 		new EndPortals(this);
@@ -44,7 +49,7 @@ public class Cosmic extends JavaPlugin {
 	}
 	@Override
 	public void onDisable() {
-		
+		//TODO: Auto generated stub
 	}
 	public Money getMoney() {
 		return money;
