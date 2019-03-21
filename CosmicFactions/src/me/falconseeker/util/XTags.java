@@ -26,6 +26,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 
 /**
+ * 
  * Sets/Gets NBT tags from ItemStacks 
  * 
  * @version 6.5

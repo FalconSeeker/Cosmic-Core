@@ -9,6 +9,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.falconseeker.cosmic.Cosmic;
+import me.falconseeker.util.Utils;
 import me.falconseeker.util.XTags;
 import me.falconseeker.util.events.ArmorEquipEvent;
  
@@ -31,6 +32,7 @@ public class EnchantmentProc implements Listener
      public EnchantmentInterface getListener(String name) {
          return listeners.get(name);
     }
+    //Gets the attackers enchantments
     @EventHandler
     public void onDamagerProcEvent(EntityDamageByEntityEvent e) {
     	
@@ -40,20 +42,24 @@ public class EnchantmentProc implements Listener
     	Player attacked = (Player) e.getEntity();
     	Player p = (Player) e.getDamager();
     	
-    	for (ItemStack armor : p.getInventory().getArmorContents()) {
+    	if (p.getInventory().getItemInMainHand() == null) return;
+    	
+    	ItemStack sword = p.getInventory().getItemInMainHand();
+    	
     		for (int i = 0; i <= 10; i++) {
-    			if (XTags.getItemTag(armor, i) == null) continue;
-    			if (getListener((String) XTags.getItemTag(armor, i)).getType() == EnchantType.IDLE) continue;
-    	    	getListener((String) XTags.getItemTag(armor, i)).onDamagerProc(p, attacked, armor, (String) XTags.getItemTag(armor, i));
+    			if (XTags.getItemTag(sword, i) == null) continue;
+    			String s = (String) XTags.getItemTag(sword, i);
+    			if (getListener(s).getType() == EnchantType.IDLE) continue;
+    	    	getListener(s).onDamagerProc(p, attacked, sword, s);
     		}
-    	}
     }
+    //Gets the attacked players enchantments
     @EventHandler
     public void onDamagedProcEvent(EntityDamageByEntityEvent e) {
     	
     	if (!(e.getDamager() instanceof Player)) return;
     	if (!(e.getEntity() instanceof Player)) return;
-    	
+
     	Player attacked = (Player) e.getEntity();
     	Player p = (Player) e.getDamager();
     	

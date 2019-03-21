@@ -8,17 +8,20 @@ import me.falconseeker.cosmic.end.endmonsters.EnderMonster;
 import net.minecraft.server.v1_12_R1.WorldServer;
 
 /**
+ * 
  * Util class for spawning End Mobs
  * 
  * @author Falcon_Seeker
  *
  */
-public final class EMobs extends Utils {
+public final class EMobs {
 
 	private EMobs() {}
 	
 	/**
+	 * 
 	 * Spawns an EnderMonster
+	 * 
 	 * @param loc - Location to spawn ender monster to
 	 */
     public static void spawnEnderMonster(Location loc){
@@ -34,7 +37,9 @@ public final class EMobs extends Utils {
 
     }
     /**
+     * 
      * Spawns a Creeper
+     * 
      * @param loc - Location to spawn creeper to
      */
     public static void spawnCreeper(Location loc){
