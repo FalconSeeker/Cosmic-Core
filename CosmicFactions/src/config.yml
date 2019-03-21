@@ -1,3 +1,5 @@
+#Any enchantments added after this will not be counted towards total enchantment count
+maxEnchantment: 13
 # All blocks with an inventory or any blocks that when right clicked shouldn't equip armor.
 blocked:
     - FURNACE

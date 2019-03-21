@@ -4,11 +4,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.falconseeker.cosmic.commands.BaseCommand;
 import me.falconseeker.cosmic.commands.CommandHandler;
-import me.falconseeker.cosmic.commands.subcommands.CommandBal;
-import me.falconseeker.cosmic.commands.subcommands.CommandGiveMoney;
 import me.falconseeker.cosmic.commands.subcommands.CommandSummon;
-import me.falconseeker.cosmic.commands.subcommands.CommandWithdraw;
-import me.falconseeker.cosmic.enchantments.EnchantmentProc;
+import me.falconseeker.cosmic.commands.subcommands.money.CommandBal;
+import me.falconseeker.cosmic.commands.subcommands.money.CommandGiveMoney;
+import me.falconseeker.cosmic.commands.subcommands.money.CommandWithdraw;
+import me.falconseeker.cosmic.enchantments.EnchantmentManager;
 import me.falconseeker.cosmic.end.endmonsters.*;
 import me.falconseeker.cosmic.end.listeners.CustomMobs;
 import me.falconseeker.cosmic.end.listeners.EndPortals;
@@ -20,7 +20,7 @@ import me.falconseeker.util.events.ArmorListener;
 public class Cosmic extends JavaPlugin {
 
 	private Money money;
-	private EnchantmentProc enchantmentProc;
+	private EnchantmentManager enchantmentProc;
 	
 	@Override
 	public void onEnable() {
@@ -29,7 +29,7 @@ public class Cosmic extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new ArmorListener(getConfig().getStringList("blocked")), this);
 
 		this.money = new Money(this);
-		this.enchantmentProc = new EnchantmentProc(this);
+		this.enchantmentProc = new EnchantmentManager(this);
 		
 		new EndPortals(this);
 		new CustomMobs(this);
@@ -57,7 +57,7 @@ public class Cosmic extends JavaPlugin {
 	public Money getMoney() {
 		return money;
 	}  
-	public EnchantmentProc getEnchantManager() {
+	public EnchantmentManager getEnchantManager() {
 		return enchantmentProc;
 	}
 }

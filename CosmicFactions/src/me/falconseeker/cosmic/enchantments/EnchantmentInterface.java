@@ -18,8 +18,8 @@ public interface EnchantmentInterface {
 	 */
 	public void onDamagerProc(Player damager, Player damaged, ItemStack i, String enchantment);
 	public void onDamagedProc(Player damager, Player damaged, ItemStack i, String enchantment);
-	public void onIdleProc(Player applier,ItemStack i, String enchantment);
-
+	public void onEquip(Player applier,ItemStack i, String enchantment, boolean unequip);
+	public Tier getRarity();
 	public EnchantType getType();
 	public EnchantApplyType getApplyType();
 }

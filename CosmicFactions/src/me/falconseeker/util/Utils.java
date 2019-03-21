@@ -5,7 +5,11 @@ import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import me.falconseeker.cosmic.enchantments.EnchantType;
+import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
 
 public class Utils {
 
@@ -21,6 +25,11 @@ public class Utils {
 	public static String color(String s) {
 		return ChatColor.translateAlternateColorCodes('&', s);
 	}
+	public static int randomInt(int min, int max) {
+		Random ran = new Random();
+		int random_int = ran.nextInt((max-min) + 1) + min;
+		return random_int;
+	}
 	/**
 	 * 
 	 * Creates a randomed value note between min and max values
@@ -31,8 +40,7 @@ public class Utils {
 	 * @return - Returns an ItemStack
 	 */
 	public static ItemStack randomNote(int min, int max, String signer) {
-		Random ran = new Random();
-		int random_int = ran.nextInt((max-min) + 1) + min;
+		int random_int = randomInt(min, max);
 		
 		return createNote(random_int, signer);
 	}
@@ -85,4 +93,26 @@ public class Utils {
 		
 		return XTags.setItemTag(untagged_item, value, "Value");
 	}
+
+    public static String numural(int number) {
+        String[] symbols = new String[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+        int[] numbers = new int[] { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        for (int i = 0; i < numbers.length; i++) {
+            if (number >= numbers[i]) {
+                return symbols[i] + numural(number - numbers[i]);
+            }
+        }
+        return "";
+    }
+ 
+    public static int unnumural(String number) {
+        String[] symbols = new String[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+        int[] numbers = new int[] { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        for (int i = 0; i < symbols.length; i++) {
+            if (number.startsWith(symbols[i])) {
+                return numbers[i] + unnumural(number.replaceFirst(symbols[i], ""));
+            }
+        }
+        return 0;
+    }
 }

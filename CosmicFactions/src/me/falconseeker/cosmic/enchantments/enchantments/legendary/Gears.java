@@ -1,16 +1,15 @@
-package me.falconseeker.cosmic.enchantments.enchantments;
+package me.falconseeker.cosmic.enchantments.enchantments.legendary;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
 import me.falconseeker.cosmic.enchantments.EnchantApplyType;
 import me.falconseeker.cosmic.enchantments.EnchantType;
 import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
-import me.falconseeker.util.XTags;
+import me.falconseeker.cosmic.enchantments.Tier;
+import me.falconseeker.util.Utils;
 
 public class Gears implements EnchantmentInterface {
 
@@ -20,23 +19,25 @@ public class Gears implements EnchantmentInterface {
 	}
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return Utils.color("&6Gears");
 	}
 
 	@Override
 	public EnchantType getType() {
 		return EnchantType.IDLE;
 	}
-
 	@Override
 	public EnchantApplyType getApplyType() {
-		return EnchantApplyType.HELMETS;
+		return EnchantApplyType.BOOTS;
+	}
+	@Override
+	public Tier getRarity() {
+		return Tier.LEGENDARY;
 	}
 	@Override
 	public List<String> getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> list = Arrays.asList("&eAdded speed when equiped.");
+		return list;
 	}
 	@Override
 	public void onDamagerProc(Player damager, Player damaged, ItemStack i, String enchantment) {
@@ -49,8 +50,8 @@ public class Gears implements EnchantmentInterface {
 		return;
 	}
 	@Override
-	public void onIdleProc(Player applier, ItemStack i, String enchantment) {
-		applier.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 999999, (int) XTags.getItemTag(i, enchantment)));
+	public void onEquip(Player applier, ItemStack i, String enchantment, boolean unequip) {
+		if (unequip) {
 	}
-
+  }
 }

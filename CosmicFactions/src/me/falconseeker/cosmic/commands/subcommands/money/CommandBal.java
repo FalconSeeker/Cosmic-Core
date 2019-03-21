@@ -1,4 +1,4 @@
-package me.falconseeker.cosmic.commands.subcommands;
+package me.falconseeker.cosmic.commands.subcommands.money;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

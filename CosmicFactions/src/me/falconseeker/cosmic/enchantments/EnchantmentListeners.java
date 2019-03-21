@@ -1,7 +1,5 @@
 package me.falconseeker.cosmic.enchantments;
 
-import java.util.HashMap;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,30 +7,19 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.falconseeker.cosmic.Cosmic;
-import me.falconseeker.util.Utils;
 import me.falconseeker.util.XTags;
 import me.falconseeker.util.events.ArmorEquipEvent;
- 
-public class EnchantmentProc implements Listener
-{
- 
-    private static HashMap<String, EnchantmentInterface> listeners = new HashMap<String, EnchantmentInterface>();
-    private Cosmic main;
-    
-    public EnchantmentProc(Cosmic main) {
-    	this.main = main;
-    }
-    public void register(String name, EnchantmentInterface cmd) {
-        listeners.put(name, cmd);
-    }
- 
-    public boolean exists(String name) {
-         return listeners.containsKey(name);
-    }
-     public EnchantmentInterface getListener(String name) {
-         return listeners.get(name);
-    }
-    //Gets the attackers enchantments
+
+public class EnchantmentListeners implements Listener {
+	
+	private EnchantmentManager enchantManager;
+	private int maxEnchantment;
+	
+	public EnchantmentListeners(Cosmic main) {
+		this.enchantManager = main.getEnchantManager();
+		this.maxEnchantment = main.getConfig().getInt("maxEnchantment");
+	}
+	//Procs the attackers enchantments
     @EventHandler
     public void onDamagerProcEvent(EntityDamageByEntityEvent e) {
     	
@@ -46,11 +33,14 @@ public class EnchantmentProc implements Listener
     	
     	ItemStack sword = p.getInventory().getItemInMainHand();
     	
-    		for (int i = 0; i <= 10; i++) {
+    		for (int i = 0; i <= maxEnchantment; i++) {
     			if (XTags.getItemTag(sword, i) == null) continue;
+    			
     			String s = (String) XTags.getItemTag(sword, i);
-    			if (getListener(s).getType() == EnchantType.IDLE) continue;
-    	    	getListener(s).onDamagerProc(p, attacked, sword, s);
+    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+
+    			if (ench.getType() == EnchantType.IDLE || ench.getType() == EnchantType.ATTACKED) continue;
+    			ench.onDamagerProc(p, attacked, sword, s);
     		}
     }
     //Gets the attacked players enchantments
@@ -64,16 +54,31 @@ public class EnchantmentProc implements Listener
     	Player p = (Player) e.getDamager();
     	
     	for (ItemStack armor : attacked.getInventory().getArmorContents()) {
-    		for (int i = 0; i <= 10; i++) {
+    		for (int i = 0; i <= maxEnchantment; i++) {
     			if (XTags.getItemTag(armor, i) == null) continue;
-    			if (getListener((String) XTags.getItemTag(armor, i)).getType() == EnchantType.IDLE) continue;
-    	    	getListener((String) XTags.getItemTag(armor, i)).onDamagerProc(attacked, attacked, armor, (String) XTags.getItemTag(armor, i));
+    			
+    			String s = (String) XTags.getItemTag(armor, i);
+    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+    			
+    			if (ench.getType() == EnchantType.IDLE) continue;
+    			ench.onDamagedProc(attacked, attacked, armor, s);
     		}
     	}
     }
     @EventHandler
     public void onArmorEquip(ArmorEquipEvent e) {
     	Player p = e.getPlayer();
+    	if (e.getOldArmorPiece() != null) {
+    		ItemStack armor = e.getOldArmorPiece();
+    		
+    		for (int i = 0; i < maxEnchantment; i++) {
+    			if (XTags.getItemTag(armor, i) == null) continue;
+    			
+    			String s = (String) XTags.getItemTag(armor, i);
+    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+    			
+    			ench.onEquip(p, armor, s, true);    			
+    		}
+    	}
     }
 }
- 

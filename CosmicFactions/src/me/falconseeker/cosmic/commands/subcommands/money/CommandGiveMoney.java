@@ -1,4 +1,4 @@
-package me.falconseeker.cosmic.commands.subcommands;
+package me.falconseeker.cosmic.commands.subcommands.money;
 
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
@@ -8,11 +8,11 @@ import me.falconseeker.cosmic.commands.CommandInterface;
 import me.falconseeker.util.Utils;
 import net.md_5.bungee.api.ChatColor;
 
-public class CommandWithdraw implements CommandInterface {
+public class CommandGiveMoney implements CommandInterface {
 
 	@Override
 	public boolean onCommand(Player p, Command cmd, String commandLabel, String[] args, Cosmic main) {
-		if (!p.hasPermission("falconseeker.cosmic.withdraw")) {
+		if (!p.hasPermission("falconseeker.cosmic.givemoney")) {
 			p.sendMessage(ChatColor.RED + "No permission!");
 			return true;
 		}
@@ -28,12 +28,9 @@ public class CommandWithdraw implements CommandInterface {
 		  p.sendMessage(ChatColor.RED + "Invalid Useage!");
 		  return true;
 		}
-		if (main.getMoney().getMoney(p) < num) {
-			p.sendMessage(ChatColor.RED + "Not enough money in your balance!");
-			return true;
-		}
 		p.getInventory().addItem(Utils.createNote(num, p.getName()));
 		p.sendMessage(ChatColor.GREEN + "Note created!");
 		return true;
 	}
+
 }

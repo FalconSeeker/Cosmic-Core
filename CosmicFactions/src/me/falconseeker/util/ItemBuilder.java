@@ -9,6 +9,8 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
+
 /**
  * 
  * ItemBuilder class made by Falcon_Seeker - 2019
@@ -45,5 +47,31 @@ public final class ItemBuilder {
 		i.setItemMeta(meta);
 		return i;
 		
+	}
+	public static ItemStack createBook(String name, Material mat, List<String> lore, EnchantmentInterface ench) {
+		
+		int destroy_rate = Utils.randomInt(0, 100);
+		int success_rate = Utils.randomInt(0, 100);
+		int lvl = Utils.randomInt(1, ench.getMaxLevel());
+		
+		ItemStack i = new ItemStack(mat);
+		ItemMeta meta = i.getItemMeta();
+		
+		List<String> l = new ArrayList<String>();
+		l.add(Utils.color("&a" + String.valueOf(success_rate) + " Success Rate"));
+		l.add(Utils.color("&c" + String.valueOf(destroy_rate) + " Destroy Rate."));
+
+		lore.forEach(s -> l.add(Utils.color(s)));
+		
+		meta.setLore(lore);
+
+		meta.setDisplayName(Utils.color(name + " " + Utils.numural(lvl)));
+		i.setItemMeta(meta);
+		
+		ItemStack is = XTags.setItemTag(i, ench.getName(), lvl);
+		ItemStack success = XTags.setItemTag(is, "destroy_rate", destroy_rate);
+		ItemStack final_stack = XTags.setItemTag(success, "success_rate", success_rate);
+
+		return final_stack;
 	}
 }
