@@ -39,7 +39,7 @@ public class BookRedeem implements Listener {
 		Tier t = (Tier) XTags.getItemTag(i, "Tier");
 		
 		List<EnchantmentInterface> enchantments = enchantManager.getEnchantmentByRarity(t);
-		EnchantmentInterface ench = enchantments.get(Utils.randomInt(0, enchantments.size()));
+		EnchantmentInterface ench = enchantments.get(Utils.randomInt(1, enchantments.size()) - 1);
 		
 		ItemStack book = ItemBuilder.createBook(ench.getName(), Material.BOOK, ench.getDescription(), ench);
 		p.getInventory().addItem(book);

@@ -5,11 +5,15 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
 import me.falconseeker.cosmic.enchantments.EnchantApplyType;
 import me.falconseeker.cosmic.enchantments.EnchantType;
 import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
 import me.falconseeker.cosmic.enchantments.Tier;
 import me.falconseeker.util.Utils;
+import me.falconseeker.util.XTags;
 
 public class Gears implements EnchantmentInterface {
 
@@ -19,7 +23,7 @@ public class Gears implements EnchantmentInterface {
 	}
 	@Override
 	public String getName() {
-		return Utils.color("&6Gears");
+		return Utils.color("&6&l&nGears");
 	}
 
 	@Override
@@ -51,7 +55,8 @@ public class Gears implements EnchantmentInterface {
 	}
 	@Override
 	public void onEquip(Player applier, ItemStack i, String enchantment, boolean unequip) {
-		if (unequip) {
+		if (!unequip) {
+		applier.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 9999, (int) XTags.getItemTag(i, getName())));
 	}
   }
 }
