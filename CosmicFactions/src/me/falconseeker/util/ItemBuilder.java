@@ -63,29 +63,28 @@ public final class ItemBuilder {
 	 */
 	public static ItemStack createBook(String name, Material mat, List<String> lore, EnchantmentInterface ench) {
 		
-		int destroy_rate = Utils.randomInt(0, 100);
-		int success_rate = Utils.randomInt(0, 100);
+		int destroyRate = Utils.randomInt(0, 100);
+		int successRate = Utils.randomInt(0, 100);
 		int lvl = Utils.randomInt(1, ench.getMaxLevel());
 		
 		ItemStack i = new ItemStack(mat);
 		ItemMeta meta = i.getItemMeta();
 		
-		List<String> l = new ArrayList<>();
-		l.add(Utils.color("&a" + String.valueOf(success_rate) + " Success Rate"));
-		l.add(Utils.color("&c" + String.valueOf(destroy_rate) + " Destroy Rate."));
-
-		lore.forEach(s -> l.add(Utils.color(s)));
+		lore.add(0, ChatColor.GREEN + "" + successRate + " Success Rate");
+		lore.add(1, ChatColor.RED + "" + destroyRate + " Destroy Rate.");
+		
+		lore = Utils.colorAll(lore);
 		
 		meta.setLore(lore);
 
 		meta.setDisplayName(Utils.color(name + " " + Utils.numural(lvl)));
 		i.setItemMeta(meta);
 		
-		ItemStack is = XTags.setItemTag(i, ench.getName(), lvl);
-		ItemStack success = XTags.setItemTag(is, "destroy_rate", destroy_rate);
-		ItemStack final_stack = XTags.setItemTag(success, "success_rate", success_rate);
+		i = XTags.setItemTag(i, ench.getName(), lvl);
+		i = XTags.setItemTag(i, "destroy_rate", destroyRate);
+		i = XTags.setItemTag(i, "success_rate", successRate);
 
-		return final_stack;
+		return XTags.setItemTag(i, ench.getName(), "Enchantment");
 	}
 	/**
 	 * 

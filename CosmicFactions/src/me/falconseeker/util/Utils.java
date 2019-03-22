@@ -1,6 +1,7 @@
 package me.falconseeker.util;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
@@ -114,5 +115,11 @@ public class Utils {
             }
         }
         return 0;
+    }
+    public static List<String> colorAll(List<String> s) {
+    	List<String> colored = new ArrayList<>();
+    	s.forEach(color -> colored.add(ChatColor.translateAlternateColorCodes('&', color)));
+		return colored;
+    	
     }
 }
