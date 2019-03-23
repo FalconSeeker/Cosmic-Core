@@ -1,9 +1,9 @@
-package me.falconseeker.coinflip.utils.gui.guitypes;
+package me.falconseeker.cosmic.utils.gui.guitypes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.IMenu;
 
 public class GUI extends IMenu {
 

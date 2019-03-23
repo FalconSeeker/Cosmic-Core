@@ -1,10 +1,10 @@
-package me.falconseeker.coinflip.utils.gui.design;
+package me.falconseeker.cosmic.utils.gui.design;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
-import me.falconseeker.coinflip.utils.gui.button.DefaultButtons;
-import me.falconseeker.coinflip.utils.gui.button.IMenuButton;
-import me.falconseeker.coinflip.utils.gui.button.MenuButton;
-import me.falconseeker.coinflip.utils.gui.exceptions.IncorrectRowSizeException;
+import me.falconseeker.cosmic.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.button.DefaultButtons;
+import me.falconseeker.cosmic.utils.gui.button.IMenuButton;
+import me.falconseeker.cosmic.utils.gui.button.MenuButton;
+import me.falconseeker.cosmic.utils.gui.exceptions.IncorrectRowSizeException;
 
 import com.google.common.collect.Iterables;
 import org.bukkit.inventory.ItemStack;
@@ -68,7 +68,7 @@ public class MenuDesigner {
 	 * @return returns {@link #MenuDesigner()}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.design.MenuDesigner setDesign(Row row, String design) {
+	public me.falconseeker.cosmic.utils.gui.design.MenuDesigner setDesign(Row row, String design) {
 		if (design.length() > 9 || design.length() < 9) {
 
 			try {

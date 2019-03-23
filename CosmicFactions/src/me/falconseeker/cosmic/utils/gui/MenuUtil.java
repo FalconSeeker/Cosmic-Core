@@ -1,4 +1,4 @@
-package me.falconseeker.coinflip.utils.gui;
+package me.falconseeker.cosmic.utils.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

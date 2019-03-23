@@ -1,7 +1,7 @@
-package me.falconseeker.coinflip.utils.gui.events;
+package me.falconseeker.cosmic.utils.gui.events;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
-import me.falconseeker.coinflip.utils.gui.button.IMenuButton;
+import me.falconseeker.cosmic.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.button.IMenuButton;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;

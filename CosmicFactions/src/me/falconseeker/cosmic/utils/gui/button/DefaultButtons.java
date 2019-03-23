@@ -1,10 +1,10 @@
-package me.falconseeker.coinflip.utils.gui.button;
+package me.falconseeker.cosmic.utils.gui.button;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
-import me.falconseeker.coinflip.utils.gui.MenuLang;
-import me.falconseeker.coinflip.utils.gui.design.MenuDesigner;
-import me.falconseeker.coinflip.utils.gui.events.ButtonClickEvent;
-import me.falconseeker.coinflip.utils.gui.exceptions.PageNotFoundException;
+import me.falconseeker.cosmic.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.MenuLang;
+import me.falconseeker.cosmic.utils.gui.design.MenuDesigner;
+import me.falconseeker.cosmic.utils.gui.events.ButtonClickEvent;
+import me.falconseeker.cosmic.utils.gui.exceptions.PageNotFoundException;
 
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;

@@ -1,9 +1,9 @@
-package me.falconseeker.coinflip.utils.gui;
+package me.falconseeker.cosmic.utils.gui;
 
-import me.falconseeker.coinflip.utils.gui.button.ButtonOptions;
-import me.falconseeker.coinflip.utils.gui.button.IMenuButton;
-import me.falconseeker.coinflip.utils.gui.events.ButtonClickEvent;
-import me.falconseeker.coinflip.utils.gui.events.ClickType;
+import me.falconseeker.cosmic.utils.gui.button.ButtonOptions;
+import me.falconseeker.cosmic.utils.gui.button.IMenuButton;
+import me.falconseeker.cosmic.utils.gui.events.ButtonClickEvent;
+import me.falconseeker.cosmic.utils.gui.events.ClickType;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -32,7 +32,7 @@ public class MenuListener implements Listener {
 	public static void register(JavaPlugin plugin) {
 
 		if (!initialized)
-			new me.falconseeker.coinflip.utils.gui.MenuListener(plugin);
+			new me.falconseeker.cosmic.utils.gui.MenuListener(plugin);
 
 	}
 

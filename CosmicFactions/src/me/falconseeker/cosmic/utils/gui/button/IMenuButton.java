@@ -1,7 +1,7 @@
-package me.falconseeker.coinflip.utils.gui.button;
+package me.falconseeker.cosmic.utils.gui.button;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
-import me.falconseeker.coinflip.utils.gui.events.ButtonClickEvent;
+import me.falconseeker.cosmic.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.events.ButtonClickEvent;
 
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
@@ -52,7 +52,7 @@ abstract public class IMenuButton implements Cloneable {
 	 *            represents a {@link org.bukkit.inventory.Inventory} slot where the
 	 *            ItemStack is going to be placed.
 	 * @param defaultButton
-	 *            is a one of the DefaultButtons which gives {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton} a
+	 *            is a one of the DefaultButtons which gives {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton} a
 	 *            identifier and a task if defined.
 	 */
 
@@ -74,7 +74,7 @@ abstract public class IMenuButton implements Cloneable {
 	 *            represents a {@link org.bukkit.inventory.Inventory} slot where the
 	 *            ItemStack is going to be placed.
 	 * @param defaultButton
-	 *            is a one of the DefaultButtons which gives {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton} a
+	 *            is a one of the DefaultButtons which gives {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton} a
 	 *            identifier and a task if defined.
 	 * @param value
 	 *            is a value that will be set for an task to find it. For example we
@@ -115,10 +115,10 @@ abstract public class IMenuButton implements Cloneable {
 	 *
 	 * @param task
 	 *            a custom task which automates the button.
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton assignTask(DefaultButtons task) {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton assignTask(DefaultButtons task) {
 
 		this.clickEvent = task.getConsumer();
 		this.identifier = task.getIdentifier();
@@ -135,10 +135,10 @@ abstract public class IMenuButton implements Cloneable {
 	 * @param value
 	 *            is to set custom value by the task identifier, for example used in
 	 *            "open" the value is the menu name.
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton assignTask(DefaultButtons task, Object value) {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton assignTask(DefaultButtons task, Object value) {
 
 		this.clickEvent = task.getConsumer();
 		this.identifier = task.getIdentifier();
@@ -163,10 +163,10 @@ abstract public class IMenuButton implements Cloneable {
 	 *            is the key of the map
 	 * @param object
 	 *            is the value to be stored
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton assignData(String key, Object object) {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton assignData(String key, Object object) {
 		getItemData().remove(key);
 		getItemData().put(key, object);
 		return this;
@@ -246,10 +246,10 @@ abstract public class IMenuButton implements Cloneable {
 	 *            a button option
 	 * @param value
 	 *            a {@link Boolean} value
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton assignOption(ButtonOptions option, boolean value) {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton assignOption(ButtonOptions option, boolean value) {
 		assignData(option.getIdentifier(), value);
 		return this;
 	}
@@ -285,22 +285,22 @@ abstract public class IMenuButton implements Cloneable {
 	 *
 	 * @param slot
 	 *            sets a slot of a {@link org.bukkit.inventory.Inventory}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton setSlot(int slot) {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton setSlot(int slot) {
 		this.slot = slot;
 		return this;
 	}
 
 	/**
-	 * @return a copy of {@link me.falconseeker.coinflip.utils.gui.button.IMenuButton}
+	 * @return a copy of {@link me.falconseeker.cosmic.utils.gui.button.IMenuButton}
 	 */
 
 	@Override
-	public me.falconseeker.coinflip.utils.gui.button.IMenuButton clone() {
+	public me.falconseeker.cosmic.utils.gui.button.IMenuButton clone() {
 		try {
-			return (me.falconseeker.coinflip.utils.gui.button.IMenuButton) super.clone();
+			return (me.falconseeker.cosmic.utils.gui.button.IMenuButton) super.clone();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

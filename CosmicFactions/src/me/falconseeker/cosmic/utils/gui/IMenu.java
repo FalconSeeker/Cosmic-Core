@@ -1,10 +1,10 @@
-package me.falconseeker.coinflip.utils.gui;
+package me.falconseeker.cosmic.utils.gui;
 
-import me.falconseeker.coinflip.utils.gui.animation.MenuAnimation;
-import me.falconseeker.coinflip.utils.gui.button.IMenuButton;
-import me.falconseeker.coinflip.utils.gui.button.PagedButton;
-import me.falconseeker.coinflip.utils.gui.design.MenuDesigner;
-import me.falconseeker.coinflip.utils.gui.events.ButtonClickEvent;
+import me.falconseeker.cosmic.utils.gui.animation.MenuAnimation;
+import me.falconseeker.cosmic.utils.gui.button.IMenuButton;
+import me.falconseeker.cosmic.utils.gui.button.PagedButton;
+import me.falconseeker.cosmic.utils.gui.design.MenuDesigner;
+import me.falconseeker.cosmic.utils.gui.events.ButtonClickEvent;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public abstract class IMenu implements InventoryHolder {
 
 	/**
-	 * A list of {@link IMenuButton} they are set later when {@link me.falconseeker.coinflip.utils.gui.IMenu#build()}
+	 * A list of {@link IMenuButton} they are set later when {@link me.falconseeker.cosmic.utils.gui.IMenu#build()}
 	 * is ran
 	 */
 	private List<IMenuButton> buttons = new ArrayList<>();
@@ -36,8 +36,8 @@ public abstract class IMenu implements InventoryHolder {
 
 	/**
 	 * Parent / Child system
-	 * Where String is a identifier for the {@link me.falconseeker.coinflip.utils.gui.IMenu}
-	 * Where IMenu is a child of {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * Where String is a identifier for the {@link me.falconseeker.cosmic.utils.gui.IMenu}
+	 * Where IMenu is a child of {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
 	private Map<String, IMenu> childs = new HashMap<>();
@@ -70,7 +70,7 @@ public abstract class IMenu implements InventoryHolder {
 
 	private MenuDesigner design;
 
-	private me.falconseeker.coinflip.utils.gui.IMenu parent;
+	private me.falconseeker.cosmic.utils.gui.IMenu parent;
 	private int size = 27;
 	final private int maxSize = 54;
 	private String title = "Inventory Title";
@@ -82,7 +82,7 @@ public abstract class IMenu implements InventoryHolder {
 	private MenuAnimation animation;
 
 	/**
-	 * This method should be ran whenever {@link me.falconseeker.coinflip.utils.gui.IMenu#build()} is called.
+	 * This method should be ran whenever {@link me.falconseeker.cosmic.utils.gui.IMenu#build()} is called.
 	 *
 	 * @param inventory
 	 *            is a Inventory "_"
@@ -106,7 +106,7 @@ public abstract class IMenu implements InventoryHolder {
 
 	/**
 	 * @param rebuild
-	 *            sets a rule if the {@link me.falconseeker.coinflip.utils.gui.IMenu#build()} needs to be called again
+	 *            sets a rule if the {@link me.falconseeker.cosmic.utils.gui.IMenu#build()} needs to be called again
 	 *            or if {@link #inventory} is null
 	 * @return a Inventory
 	 */
@@ -125,10 +125,10 @@ public abstract class IMenu implements InventoryHolder {
 	 *
 	 * @param button
 	 *            is a object that extends {@link IMenuButton}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu addButton(IMenuButton button) {
+	public me.falconseeker.cosmic.utils.gui.IMenu addButton(IMenuButton button) {
 
 		buttons.add(button);
 		return this;
@@ -174,23 +174,23 @@ public abstract class IMenu implements InventoryHolder {
 	}
 
 	/**
-	 * Sets a parent of {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * Sets a parent of {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 *
 	 * @param menu
-	 *            is a parent of this {@link me.falconseeker.coinflip.utils.gui.IMenu}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 *            is a parent of this {@link me.falconseeker.cosmic.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu setParent(me.falconseeker.coinflip.utils.gui.IMenu menu) {
+	public me.falconseeker.cosmic.utils.gui.IMenu setParent(me.falconseeker.cosmic.utils.gui.IMenu menu) {
 		parent = menu;
 		return this;
 	}
 
 	/**
-	 * @return a parent of this {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a parent of this {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu getParent() {
+	public me.falconseeker.cosmic.utils.gui.IMenu getParent() {
 		return parent;
 	}
 
@@ -201,10 +201,10 @@ public abstract class IMenu implements InventoryHolder {
 	 *            is a key for the map
 	 * @param object
 	 *            is a value for the map
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu assignData(String key, Object object) {
+	public me.falconseeker.cosmic.utils.gui.IMenu assignData(String key, Object object) {
 		getInventoryData().put(key, object);
 		return this;
 	}
@@ -236,11 +236,11 @@ public abstract class IMenu implements InventoryHolder {
 	}
 
 	/**
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu} first menu that was created.
-	 *         Can be called anywhere in the {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu} first menu that was created.
+	 *         Can be called anywhere in the {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu getMainMenu() {
+	public me.falconseeker.cosmic.utils.gui.IMenu getMainMenu() {
 		if (parent == null)
 			return this;
 		else
@@ -251,10 +251,10 @@ public abstract class IMenu implements InventoryHolder {
 	 * @param name
 	 *            name of the child
 	 * @param menu
-	 *            {@link me.falconseeker.coinflip.utils.gui.IMenu}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 *            {@link me.falconseeker.cosmic.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
-	public me.falconseeker.coinflip.utils.gui.IMenu addChild(String name, me.falconseeker.coinflip.utils.gui.IMenu menu) {
+	public me.falconseeker.cosmic.utils.gui.IMenu addChild(String name, me.falconseeker.cosmic.utils.gui.IMenu menu) {
 		menu.setParent(this);
 		childs.put(name, menu);
 		return this;
@@ -262,16 +262,16 @@ public abstract class IMenu implements InventoryHolder {
 
 	/**
 	 * @param name
-	 *            of a child {@link me.falconseeker.coinflip.utils.gui.IMenu}
-	 * @return link {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 *            of a child {@link me.falconseeker.cosmic.utils.gui.IMenu}
+	 * @return link {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu getChild(String name) {
+	public me.falconseeker.cosmic.utils.gui.IMenu getChild(String name) {
 		return childs.get(name);
 	}
 
 	/**
-	 * @return returns all childs of {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return returns all childs of {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
 	public Map<String, IMenu> getChilds() {
@@ -286,7 +286,7 @@ public abstract class IMenu implements InventoryHolder {
 
 		Map<String, IMenu> pages = new HashMap<>();
 
-		me.falconseeker.coinflip.utils.gui.IMenu currentMenu = this;
+		me.falconseeker.cosmic.utils.gui.IMenu currentMenu = this;
 
 		if (currentMenu.getParent() == null)
 			return currentMenu.getChilds();
@@ -316,10 +316,10 @@ public abstract class IMenu implements InventoryHolder {
 	/**
 	 * @param rowsCount
 	 *            is a number not bigger than 6 as max inventory size is 54.
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu setInventorySize(int rowsCount) {
+	public me.falconseeker.cosmic.utils.gui.IMenu setInventorySize(int rowsCount) {
 
 		int equals = rowsCount * 9;
 
@@ -405,17 +405,17 @@ public abstract class IMenu implements InventoryHolder {
 
 	/**
 	 * @param design
-	 *            sets design of an menu {@link me.falconseeker.coinflip.utils.gui.IMenu}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 *            sets design of an menu {@link me.falconseeker.cosmic.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu setDesign(MenuDesigner design) {
+	public me.falconseeker.cosmic.utils.gui.IMenu setDesign(MenuDesigner design) {
 		this.design = design;
 		return this;
 	}
 
 	/**
-	 * @return a Design of an {@link me.falconseeker.coinflip.utils.gui.IMenu} {@link MenuDesigner}
+	 * @return a Design of an {@link me.falconseeker.cosmic.utils.gui.IMenu} {@link MenuDesigner}
 	 */
 
 	public MenuDesigner getDesign() {
@@ -435,10 +435,10 @@ public abstract class IMenu implements InventoryHolder {
 	/**
 	 * @param inventory
 	 *            is where to place dummies
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu setDummies(Inventory inventory) {
+	public me.falconseeker.cosmic.utils.gui.IMenu setDummies(Inventory inventory) {
 
 		/*
 		 * First we gotta set filler dummies
@@ -471,10 +471,10 @@ public abstract class IMenu implements InventoryHolder {
 	 *            is a identifier of a button in {@link #buttons}
 	 * @param inventory
 	 *            is a {@link Inventory}
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu setButtonByIdentifer(String identifier, Inventory inventory) {
+	public me.falconseeker.cosmic.utils.gui.IMenu setButtonByIdentifer(String identifier, Inventory inventory) {
 
 		IMenuButton button = findButtonByIdentifier(identifier);
 		if (button != null) {
@@ -492,15 +492,15 @@ public abstract class IMenu implements InventoryHolder {
 	}
 
 	/**
-	 * Changes title of {@link Inventory} and {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * Changes title of {@link Inventory} and {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 *
 	 * @param title
 	 *            is a string, make sure that it doesn't exceed minecraft limit
 	 *            which is 32
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.IMenu}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.IMenu}
 	 */
 
-	public me.falconseeker.coinflip.utils.gui.IMenu changeTitle(String title) {
+	public me.falconseeker.cosmic.utils.gui.IMenu changeTitle(String title) {
 
 		setTitle(title);
 		getInventory().getViewers()

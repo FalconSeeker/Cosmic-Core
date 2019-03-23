@@ -1,6 +1,6 @@
-package me.falconseeker.coinflip.utils.gui.exceptions;
+package me.falconseeker.cosmic.utils.gui.exceptions;
 
-import me.falconseeker.coinflip.utils.gui.MenuUtil;
+import me.falconseeker.cosmic.utils.gui.MenuUtil;
 
 public class IncorrectRowSizeException extends Exception {
 

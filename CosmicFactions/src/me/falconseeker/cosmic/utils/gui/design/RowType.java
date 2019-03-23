@@ -1,4 +1,4 @@
-package me.falconseeker.coinflip.utils.gui.design;
+package me.falconseeker.cosmic.utils.gui.design;
 
 public enum RowType {
 

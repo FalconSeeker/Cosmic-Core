@@ -1,7 +1,7 @@
-package me.falconseeker.coinflip.utils.gui.animation;
+package me.falconseeker.cosmic.utils.gui.animation;
 
-import me.falconseeker.coinflip.utils.gui.IMenu;
-import me.falconseeker.coinflip.utils.gui.design.MenuDesigner;
+import me.falconseeker.cosmic.utils.gui.IMenu;
+import me.falconseeker.cosmic.utils.gui.design.MenuDesigner;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -34,8 +34,8 @@ public class MenuAnimation {
 
 	private MenuAnimation() {}
 
-	public static me.falconseeker.coinflip.utils.gui.animation.MenuAnimation create() {
-		return new me.falconseeker.coinflip.utils.gui.animation.MenuAnimation();
+	public static me.falconseeker.cosmic.utils.gui.animation.MenuAnimation create() {
+		return new me.falconseeker.cosmic.utils.gui.animation.MenuAnimation();
 	}
 
 	/**
@@ -67,9 +67,9 @@ public class MenuAnimation {
 	 *            frame position
 	 * @param designer
 	 *            is a design that will be used on that frame.
-	 * @return a {@link me.falconseeker.coinflip.utils.gui.animation.MenuAnimation}
+	 * @return a {@link me.falconseeker.cosmic.utils.gui.animation.MenuAnimation}
 	 */
-	public me.falconseeker.coinflip.utils.gui.animation.MenuAnimation setFrame(int frame, MenuDesigner designer) {
+	public me.falconseeker.cosmic.utils.gui.animation.MenuAnimation setFrame(int frame, MenuDesigner designer) {
 		if (frames.containsKey(frame))
 			frames.remove(frame);
 		frames.put(frame, designer);

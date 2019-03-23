@@ -1,13 +1,13 @@
-package me.falconseeker.coinflip.utils.gui.exceptions;
+package me.falconseeker.cosmic.utils.gui.exceptions;
 
-import me.falconseeker.coinflip.utils.gui.MenuUtil;
+import me.falconseeker.cosmic.utils.gui.MenuUtil;
 
-public class InventoryEmptyException extends Exception {
+public class PageNotFoundException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 	private String message;
 
-	public InventoryEmptyException(String message) {
+	public PageNotFoundException(String message) {
 		this.message = message;
 	}
 

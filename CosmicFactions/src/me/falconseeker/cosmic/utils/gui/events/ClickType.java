@@ -1,4 +1,4 @@
-package me.falconseeker.coinflip.utils.gui.events;
+package me.falconseeker.cosmic.utils.gui.events;
 
 public enum ClickType {
 

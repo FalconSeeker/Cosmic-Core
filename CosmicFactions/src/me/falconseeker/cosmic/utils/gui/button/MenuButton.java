@@ -1,4 +1,4 @@
-package me.falconseeker.coinflip.utils.gui.button;
+package me.falconseeker.cosmic.utils.gui.button;
 
 import org.bukkit.inventory.ItemStack;
 
