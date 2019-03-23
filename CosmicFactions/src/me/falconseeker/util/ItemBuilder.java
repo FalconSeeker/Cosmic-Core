@@ -10,7 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
+import me.falconseeker.cosmic.enchantments.IEnchantment;
 import me.falconseeker.cosmic.enchantments.Tier;
 import net.md_5.bungee.api.ChatColor;
 
@@ -61,7 +61,7 @@ public final class ItemBuilder {
 	 * @param ench - EnchantmentInterface enchantment being used
 	 * @return - Returns an ItemStack
 	 */
-	public static ItemStack createBook(String name, Material mat, List<String> lore, EnchantmentInterface ench) {
+	public static ItemStack createBook(String name, Material mat, List<String> lore, IEnchantment ench) {
 		
 		int destroyRate = Utils.randomInt(0, 100);
 		int successRate = Utils.randomInt(0, 100);

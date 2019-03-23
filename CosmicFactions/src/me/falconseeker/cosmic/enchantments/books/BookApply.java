@@ -7,7 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.falconseeker.cosmic.Cosmic;
-import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
+import me.falconseeker.cosmic.enchantments.IEnchantment;
 import me.falconseeker.cosmic.enchantments.EnchantmentManager;
 import me.falconseeker.util.XTags;
 
@@ -29,7 +29,7 @@ public class BookApply implements Listener {
 		ItemStack cursor = e.getCursor();
 		
 		if (XTags.getItemTag(cursor, "Enchantment") == null) return;
-		EnchantmentInterface ench = enchantManager.getEnchantment((String) XTags.getItemTag(cursor, "Enchantment"));
+		IEnchantment ench = enchantManager.getEnchantment((String) XTags.getItemTag(cursor, "Enchantment"));
 		
 		if (!current.getType().toString().contains(ench.getApplyType().toString())) return;
 		

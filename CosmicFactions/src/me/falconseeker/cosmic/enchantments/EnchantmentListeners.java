@@ -37,7 +37,7 @@ public class EnchantmentListeners implements Listener {
     			if (XTags.getItemTag(sword, i) == null) continue;
     			
     			String s = (String) XTags.getItemTag(sword, i);
-    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+    			IEnchantment ench = enchantManager.getEnchantment(s);
 
     			if (ench.getType() == EnchantType.IDLE || ench.getType() == EnchantType.ATTACKED) continue;
     			ench.onDamagerProc(p, attacked, sword, s);
@@ -58,7 +58,7 @@ public class EnchantmentListeners implements Listener {
     			if (XTags.getItemTag(armor, i) == null) continue;
     			
     			String s = (String) XTags.getItemTag(armor, i);
-    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+    			IEnchantment ench = enchantManager.getEnchantment(s);
     			
     			if (ench.getType() == EnchantType.IDLE) continue;
     			ench.onDamagedProc(attacked, attacked, armor, s);
@@ -75,7 +75,7 @@ public class EnchantmentListeners implements Listener {
     			if (XTags.getItemTag(armor, i) == null) continue;
     			
     			String s = (String) XTags.getItemTag(armor, i);
-    			EnchantmentInterface ench = enchantManager.getEnchantment(s);
+    			IEnchantment ench = enchantManager.getEnchantment(s);
     			
     			ench.onEquip(p, armor, s, true);    			
     		}

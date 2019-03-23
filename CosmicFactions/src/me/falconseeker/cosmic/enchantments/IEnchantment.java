@@ -5,7 +5,7 @@ import java.util.List;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public interface EnchantmentInterface {
+public interface IEnchantment {
 	public int getMaxLevel();
 	public String getName();
 	public List<String> getDescription();

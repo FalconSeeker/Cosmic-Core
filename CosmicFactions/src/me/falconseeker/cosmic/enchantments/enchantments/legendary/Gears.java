@@ -10,12 +10,12 @@ import org.bukkit.potion.PotionEffectType;
 
 import me.falconseeker.cosmic.enchantments.EnchantApplyType;
 import me.falconseeker.cosmic.enchantments.EnchantType;
-import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
+import me.falconseeker.cosmic.enchantments.IEnchantment;
 import me.falconseeker.cosmic.enchantments.Tier;
 import me.falconseeker.util.Utils;
 import me.falconseeker.util.XTags;
 
-public class Gears implements EnchantmentInterface {
+public class Gears implements IEnchantment {
 
 	@Override
 	public int getMaxLevel() {

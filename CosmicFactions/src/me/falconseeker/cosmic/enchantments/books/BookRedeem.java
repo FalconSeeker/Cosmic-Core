@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import me.falconseeker.cosmic.Cosmic;
-import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
+import me.falconseeker.cosmic.enchantments.IEnchantment;
 import me.falconseeker.cosmic.enchantments.EnchantmentManager;
 import me.falconseeker.cosmic.enchantments.Tier;
 import me.falconseeker.util.ItemBuilder;
@@ -38,8 +38,8 @@ public class BookRedeem implements Listener {
 		
 		Tier t = (Tier) XTags.getItemTag(i, "Tier");
 		
-		List<EnchantmentInterface> enchantments = enchantManager.getEnchantmentByRarity(t);
-		EnchantmentInterface ench = enchantments.get(Utils.randomInt(1, enchantments.size()) - 1);
+		List<IEnchantment> enchantments = enchantManager.getEnchantmentByRarity(t);
+		IEnchantment ench = enchantments.get(Utils.randomInt(1, enchantments.size()) - 1);
 		
 		ItemStack book = ItemBuilder.createBook(ench.getName(), Material.BOOK, ench.getDescription(), ench);
 		p.getInventory().addItem(book);

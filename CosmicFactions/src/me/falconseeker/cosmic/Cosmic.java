@@ -9,6 +9,8 @@ import me.falconseeker.cosmic.commands.subcommands.money.CommandBal;
 import me.falconseeker.cosmic.commands.subcommands.money.CommandGiveMoney;
 import me.falconseeker.cosmic.commands.subcommands.money.CommandWithdraw;
 import me.falconseeker.cosmic.enchantments.EnchantmentManager;
+import me.falconseeker.cosmic.enchantments.books.BookApply;
+import me.falconseeker.cosmic.enchantments.books.BookRedeem;
 import me.falconseeker.cosmic.end.endmonsters.*;
 import me.falconseeker.cosmic.end.listeners.CustomMobs;
 import me.falconseeker.cosmic.end.listeners.EndPortals;
@@ -35,6 +37,8 @@ public class Cosmic extends JavaPlugin {
 		new CustomMobs(this);
 		new MoneyClick(this);
 		new MobHealth(this);
+		new BookApply(this);
+		new BookRedeem(this);
 		
 		EntityRegister.registerCustomEntity(5, "EndMonster", EnderMonster.class);
 		EntityRegister.registerCustomEntity(50, "EndCreeper", EnderCreeper.class);

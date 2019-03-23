@@ -20,28 +20,28 @@ import me.falconseeker.util.events.ArmorEquipEvent;
 public class EnchantmentManager implements Listener
 {
  
-    private static Map<String, EnchantmentInterface> listeners = new HashMap<>();
+    private static Map<String, IEnchantment> listeners = new HashMap<>();
     private Cosmic main;
 
     public EnchantmentManager(Cosmic main) {
     	this.main = main;
     }
-    public void register(String name, EnchantmentInterface cmd) {
+    public void register(String name, IEnchantment cmd) {
         listeners.put(name, cmd);
     }
     public boolean exists(String name) {
          return listeners.containsKey(name);
     }
-     public EnchantmentInterface getEnchantment(String name) {
+     public IEnchantment getEnchantment(String name) {
          return listeners.get(name);
     }
-     public Set<EnchantmentInterface> getEnchantments() {
-    	 Set<EnchantmentInterface> enchantments = new HashSet<>();
+     public Set<IEnchantment> getEnchantments() {
+    	 Set<IEnchantment> enchantments = new HashSet<>();
     	 enchantments.addAll(listeners.values());
          return enchantments;
     }
-    public List<EnchantmentInterface> getEnchantmentByRarity(Tier rarity){
-    	List<EnchantmentInterface> enchantments = new ArrayList<>();
+    public List<IEnchantment> getEnchantmentByRarity(Tier rarity){
+    	List<IEnchantment> enchantments = new ArrayList<>();
     	listeners.values().forEach(ench -> { if (ench.getRarity() == rarity) enchantments.add(ench); });
 		return enchantments;	
     }

@@ -1,16 +1,13 @@
 package me.falconseeker.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
-import me.falconseeker.cosmic.enchantments.EnchantType;
-import me.falconseeker.cosmic.enchantments.EnchantmentInterface;
 
 public class Utils {
 
@@ -28,8 +25,8 @@ public class Utils {
 	}
 	public static int randomInt(int min, int max) {
 		Random ran = new Random();
-		int random_int = ran.nextInt((max-min) + 1) + min;
-		return random_int;
+		int randomInt = ran.nextInt((max-min) + 1) + min;
+		return randomInt;
 	}
 	/**
 	 * 
@@ -40,10 +37,8 @@ public class Utils {
 	 * @param signer - Signer of the note
 	 * @return - Returns an ItemStack
 	 */
-	public static ItemStack randomNote(int min, int max, String signer) {
-		int random_int = randomInt(min, max);
-		
-		return createNote(random_int, signer);
+	public static ItemStack randomNote(int min, int max, String signer) {		//Method being removed in future update
+		return createNote(randomInt(min, max), signer);
 	}
 	/**
 	 * 
@@ -73,9 +68,9 @@ public class Utils {
 		lore.add(color("&dValue &f" + String.valueOf(value)));
 		lore.add(color("&dSigner &7" + signer));
 		
-		ItemStack untagged_item = ItemBuilder.createItem("&b&lCosmic Note &7(Right Click)", Material.PAPER, lore, 1);
+		ItemStack untaggedItem = ItemBuilder.createItem("&b&lCosmic Note &7(Right Click)", Material.PAPER, lore, 1);
 		
-		return XTags.setItemTag(untagged_item, value, "Value");
+		return XTags.setItemTag(untaggedItem, value, "Value");
 	}
 	/**
 	 * 
@@ -85,14 +80,9 @@ public class Utils {
 	 * @param signer - Signer of EXP Bottle
 	 * @return - Returns an ItemStack
 	 */
-	public static ItemStack createEXP(int value, String signer) {
-		ArrayList<String> lore = new ArrayList<String>();
-		lore.add(color("&dValue &f" + String.valueOf(value) + " XP"));
-		lore.add(color("&dEnchanter &7" + signer));
-		
-		ItemStack untagged_item = ItemBuilder.createItem("&a&lExperience Bottle &7(Throw)", Material.EXP_BOTTLE, lore, 1);
-		
-		return XTags.setItemTag(untagged_item, value, "Value");
+	public static ItemStack createEXP(int value, String signer) { //I used color() so I can add future config support with ease
+		ItemStack untaggedItem = ItemBuilder.createItem("&a&lExperience Bottle &7(Throw)", Material.EXP_BOTTLE, Arrays.asList(color("&dValue &f" + String.valueOf(value) + " XP"), color("&dEnchanter &7" + signer)), 1);
+		return XTags.setItemTag(untaggedItem, value, "Value");
 	}
 
     public static String numural(int number) {
